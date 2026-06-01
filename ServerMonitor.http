@@ -1,0 +1,16 @@
+@CServerMonitor_HostAddress = http://localhost:5052
+
+GET {{CServerMonitor_HostAddress}}/api/metric
+Accept: application/json
+
+###
+
+GET {{CServerMonitor_HostAddress}}/api/metric/history
+Accept: application/json
+
+###
+
+GET {{CServerMonitor_HostAddress}}/api/alerts
+Accept: application/json
+
+###
