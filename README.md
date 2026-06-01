@@ -1,4 +1,4 @@
-# C-Server-Monitor
+# C\# Server Monitor
 
 ASP.NET Core API for collecting Linux system metrics and storing alerts in PostgreSQL.
 
