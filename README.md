@@ -1,16 +1,14 @@
 # C-Server-Monitor
 
-API en ASP.NET Core para capturar metricas del sistema Linux y registrar alertas en PostgreSQL.
+ASP.NET Core API for collecting Linux system metrics and storing alerts in PostgreSQL.
 
-Repositorio: https://github.com/Alfred-DMB/C-Server-Monitor
+## Features
 
-## Incluye
-
-- captura de CPU, RAM, disco y procesos activos
-- guardado de metricas en PostgreSQL con Entity Framework Core
-- creacion automatica de alertas por umbrales
-- endpoints para ver metricas historicas y alertas
-- Swagger en entorno de desarrollo
+- CPU, RAM, disk, and active process monitoring
+- metric persistence with Entity Framework Core and PostgreSQL
+- automatic alert creation based on thresholds
+- endpoints for metric history and alerts
+- Swagger enabled in development
 
 ## Stack
 
@@ -19,21 +17,21 @@ Repositorio: https://github.com/Alfred-DMB/C-Server-Monitor
 - Entity Framework Core
 - PostgreSQL
 
-## Configuracion local
+## Local Setup
 
-El proyecto ya no guarda la cadena de conexion dentro del codigo. Configurala con user secrets:
+The project no longer stores the connection string in source code. Configure it with user secrets:
 
 ```bash
 dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Database=LinuxMonitor;Username=postgres;Password=TU_PASSWORD"
 ```
 
-Tambien puedes usar una variable de entorno:
+You can also use an environment variable:
 
 ```bash
 export ConnectionStrings__DefaultConnection="Host=localhost;Database=LinuxMonitor;Username=postgres;Password=TU_PASSWORD"
 ```
 
-## Ejecutar
+## Run
 
 ```bash
 git clone https://github.com/Alfred-DMB/C-Server-Monitor.git
@@ -49,8 +47,8 @@ dotnet run --launch-profile http
 - `GET /api/metric/history`
 - `GET /api/alerts`
 
-## Notas
+## Notes
 
-- Swagger queda disponible en `/swagger` cuando `ASPNETCORE_ENVIRONMENT=Development`.
-- Los comandos rapidos del proyecto estan en `COMANDOS.md`.
-- El nombre del repo en GitHub es `C-Server-Monitor`, aunque el proyecto .NET interno sigue usando `ServerMonitor`.
+- Swagger is available at `/swagger` when `ASPNETCORE_ENVIRONMENT=Development`.
+- Quick project commands are listed in `COMANDOS.md`.
+- The GitHub repository is named `C-Server-Monitor`, while the internal .NET project name is still `ServerMonitor`.
