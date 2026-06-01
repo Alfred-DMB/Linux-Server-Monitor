@@ -25,6 +25,40 @@ namespace ServerMonitor.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("ServerMonitor.Alertador", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Alerts");
+                });
+
             modelBuilder.Entity("ServerMonitor.Metric", b =>
                 {
                     b.Property<int>("Id")
@@ -35,12 +69,6 @@ namespace ServerMonitor.Migrations
 
                     b.Property<int>("ActiveProcess")
                         .HasColumnType("integer");
-
-                    b.Property<double>("CpuInfo")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("DiskUsage")
-                        .HasColumnType("double precision");
 
                     b.Property<double>("RamUsage")
                         .HasColumnType("double precision");
