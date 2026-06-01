@@ -55,6 +55,16 @@ The additional endpoints expose stored data:
 - `Data/AppDbContext.cs`: Entity Framework database context
 - `Migrations/`: versioned database schema history
 
+## Development Notes
+
+Even though the codebase is intentionally simple, a few practical issues appeared while building the project:
+
+- the original MVC controller route was not being exposed at runtime
+- Swagger initially showed no usable endpoint paths
+- the alert flow needed schema cleanup so the migration history stayed coherent
+
+For a short troubleshooting note, see `docs/WHY_IT_FAILED.md`.
+
 ## Local Setup
 
 The project no longer stores the connection string in source code. Configure it with user secrets:
